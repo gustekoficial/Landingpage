@@ -119,6 +119,8 @@
         transition: transform 0.3s, box-shadow 0.3s;
         box-shadow: 0 5px 25px rgba(0, 255, 0, 0.5);
         animation: pulse 2s infinite;
+        text-decoration: none;
+        display: inline-block;
       }
 
       .cta-btn:hover {
@@ -197,6 +199,59 @@
         font-style: italic;
       }
 
+      /* Nova seção de exclusividade */
+      .exclusive-contact {
+        background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 20px;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 0 40px rgba(0, 255, 0, 0.2);
+        margin: 60px auto;
+      }
+
+      .exclusive-contact h3 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #d4ff3c, var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      .exclusive-contact p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+        line-height: 1.6;
+        color: var(--text-muted);
+      }
+
+      .exclusive-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto 40px;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .exclusive-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .exclusive-list li::before {
+        content: "⭐"; /* Estrela como ícone de destaque */
+        margin-right: 15px;
+        font-size: 1.5rem;
+      }
+
       footer {
         background-color: #0a0a0a;
         color: var(--text-muted);
@@ -216,6 +271,9 @@
         .about-section img {
           width: 200px;
           height: 200px;
+        }
+        .exclusive-contact h3 {
+          font-size: 1.8rem;
         }
       }
     </style>
@@ -306,6 +364,26 @@
           >
         </div>
       </div>
+    </section>
+
+    <section class="container exclusive-contact">
+      <h3>ADQUIRA AGORA E FALE DIRETAMENTE COM O AUTOR!</h3>
+      <p>
+        Este não é apenas um livro, é o seu passaporte para uma nova fase. Ao
+        adquirir, você ganha acesso a um benefício inestimável que diferencia
+        este material de qualquer outro:
+      </p>
+      <ul class="exclusive-list">
+        <li>
+          **Acesso Exclusivo ao Chat com o Autor:** Tire suas dúvidas, receba
+          feedback e orientação personalizada diretamente de mim, Gustavo.
+        </li>
+        <li>
+          **Comunidade de Suporte:** Conecte-se com outras pessoas na mesma
+          jornada, trocando experiências e motivação.
+        </li>
+      </ul>
+      <a href="#" class="cta-btn">Garantir Meu Acesso Agora</a>
     </section>
 
     <section class="container" style="text-align: center">
