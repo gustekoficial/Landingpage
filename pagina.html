@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vida Sem Propósito? | Descubra Seu Caminho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #00ff00;
+        --background-color: #000000;
+        --card-color: #1a1a1a;
+        --text-color: #ffffff;
+        --text-muted: #cccccc;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      #particle-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: var(--background-color);
+      }
+
+      .particle {
+        position: absolute;
+        background: var(--primary-color);
+        border-radius: 50%;
+        opacity: 0.4;
+        animation: float 25s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) translateX(0);
+        }
+        50% {
+          transform: translateY(-100vh) translateX(20vw);
+        }
+        100% {
+          transform: translateY(0) translateX(0);
+        }
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .vsl-header h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #d4ff3c, var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      .vsl-header p {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        color: var(--text-muted);
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: #000;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 255, 0, 0.2);
+        margin-bottom: 40px;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .cta-btn {
+        background-color: var(--primary-color);
+        color: #000;
+        padding: 20px 50px;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 5px 25px rgba(0, 255, 0, 0.5);
+        animation: pulse 2s infinite;
+      }
+
+      .cta-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 35px rgba(0, 255, 0, 0.7);
+        animation: none;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      h2 {
+        font-size: 2.8rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background-color: var(--card-color);
+        padding: 35px;
+        border-radius: 15px;
+        border: 1px solid #222;
+        border-top: 3px solid var(--primary-color);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        text-align: left;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .about-section {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        text-align: left;
+      }
+
+      .about-section img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid var(--primary-color);
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+      }
+
+      .testimonials .card {
+        font-style: italic;
+      }
+
+      footer {
+        background-color: #0a0a0a;
+        color: var(--text-muted);
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 60px;
+      }
+
+      @media (max-width: 768px) {
+        .vsl-header h1,
+        h2 {
+          font-size: 2.2rem;
+        }
+        .about-section {
+          flex-direction: column;
+        }
+        .about-section img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="particle-background"></div>
+
+    <div class="container vsl-header">
+      <h1>
+        VOCÊ SENTE QUE SUA
+        <span class="gradient-text">VIDA NÃO SAI DO LUGAR?</span>
+      </h1>
+      <p>
+        Assista o vídeo abaixo e descubra o método que usei para conquistar
+        minha liberdade e realizar meus maiores sonhos aos 19 anos.
+      </p>
+
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+
+      <button class="cta-btn">Sim, Quero Meu Livro Agora!</button>
+    </div>
+
+    <section class="container about-section">
+      <img
+        src="https://images.pexels.com/photos/1752126/pexels-photo-1752126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="Foto do Autor Gustavo com sua moto"
+      />
+      <div class="about-text">
+        <h3>QUEM SOU EU?</h3>
+        <p>
+          Meu nome é Gustavo, tenho 19 anos e conquistei um dos meus maiores
+          sonhos: minha liberdade e minha moto XJ6. Mas antes disso, eu também
+          me sentia perdido, sem rumo, em meio a tantas escolhas que a vida
+          moderna coloca na nossa frente. Esse livro é o guia que eu gostaria de
+          ter encontrado — prático, direto e real. Escrevi para jovens como
+          você, que querem encontrar um propósito e viver intensamente.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>O Que Você Vai <span class="gradient-text">Descobrir</span></h2>
+      <div class="grid">
+        <div class="card">
+          <strong>✔ Clareza de Direção:</strong> Como sair da indecisão e
+          escolher o caminho certo para sua vida.
+        </div>
+        <div class="card">
+          <strong>✔ Plano de Ação:</strong> O passo a passo exato para
+          transformar sonhos em conquistas reais.
+        </div>
+        <div class="card">
+          <strong>✔ Estratégia Validada:</strong> As mesmas técnicas que usei
+          para realizar meu maior sonho antes dos 20 anos.
+        </div>
+        <div class="card">
+          <strong>✔ Mentalidade Inabalável:</strong> Como vencer o medo de errar
+          e agir com confiança e propósito.
+        </div>
+      </div>
+    </section>
+
+    <section class="container testimonials">
+      <h2>O Que <span class="gradient-text">Estão Dizendo</span></h2>
+      <div class="grid">
+        <div class="card">
+          “Esse livro abriu meus olhos para enxergar a vida de uma forma
+          totalmente diferente. Um divisor de águas!”<br /><strong
+            >— Mariana, 21 anos</strong
+          >
+        </div>
+        <div class="card">
+          “Depois de ler, finalmente entendi que eu não estava sozinho na minha
+          confusão. Me deu o mapa que eu precisava.”<br /><strong
+            >— Pedro, 19 anos</strong
+          >
+        </div>
+        <div class="card">
+          “Me ajudou a dar o primeiro passo que eu estava adiando há anos.
+          Simplesmente prático e transformador.”<br /><strong
+            >— Ana, 25 anos</strong
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="text-align: center">
+      <h2>
+        Está Pronto Para Encontrar
+        <span class="gradient-text">Seu Propósito?</span>
+      </h2>
+      <p
+        style="
+          font-size: 1.2rem;
+          color: var(--text-muted);
+          margin-bottom: 30px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        Não adie mais. Sua vida pode mudar com uma única decisão. Clique no
+        botão abaixo e garanta seu acesso imediato.
+      </p>
+      <button class="cta-btn">Garantir Meu Acesso Agora</button>
+    </section>
+
+    <footer>
+      <p>© 2025 - Vida Sem Propósito? | Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      // Script para criar as partículas do fundo
+      const particleContainer = document.getElementById("particle-background");
+      const particles = 50;
+      for (let i = 0; i < particles; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        const size = Math.random() * 3 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.animationDuration = `${Math.random() * 15 + 15}s`;
+        particle.style.animationDelay = `${Math.random() * -25}s`;
+        particleContainer.appendChild(particle);
+      }
+    </script>
+  </body>
+</html>
