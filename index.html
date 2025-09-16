@@ -97,13 +97,25 @@
         margin-bottom: 40px;
       }
 
-      .video-container iframe {
+      /* Estilização do player de vídeo nativo */
+      .video-container video {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         border: 0;
+        /* Adicionando a nova propriedade para garantir o preenchimento */
+        object-fit: cover;
+      }
+
+      /* Oculta os controles nativos do player de vídeo */
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+
+      video::-webkit-media-controls-enclosure {
+        display: none !important;
       }
 
       .cta-btn {
@@ -199,7 +211,6 @@
         font-style: italic;
       }
 
-      /* Nova seção de exclusividade */
       .exclusive-contact {
         background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
         padding: 60px 20px;
@@ -292,13 +303,15 @@
       </p>
 
       <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+        <video
+          id="vslVideo"
+          playsinline
+          controlsList="nodownload"
+          preload="auto"
         >
-        </iframe>
+          <source src="VSL.mp4" type="video/mp4" />
+          Seu navegador não suporta o elemento de vídeo.
+        </video>
       </div>
 
       <button class="cta-btn">Quero Descobrir Meu Propósito Agora!</button>
@@ -376,7 +389,12 @@
       <ul class="exclusive-list">
         <li>
           **Acesso Exclusivo ao Chat com o Autor:** Tire suas dúvidas, receba
-          feedback e orientação personalizada diretamente de mim, Gustavo.
+          feedback e orientação personalizada diretamente de mim, Gustavo, no
+          nosso chat privado.
+        </li>
+        <li>
+          **Mentoria Pessoal:** Garanto que você coloque cada ensinamento em
+          prática, guiando-o no seu caminho para o propósito.
         </li>
         <li>
           **Comunidade de Suporte:** Conecte-se com outras pessoas na mesma
@@ -427,6 +445,30 @@
         particle.style.animationDelay = `${Math.random() * -25}s`;
         particleContainer.appendChild(particle);
       }
+
+      // VSL Script para evitar que o usuário volte no video
+      const vslVideo = document.getElementById("vslVideo");
+      let currentVideoTime = 0;
+
+      vslVideo.addEventListener("timeupdate", () => {
+        if (vslVideo.currentTime < currentVideoTime) {
+          vslVideo.currentTime = currentVideoTime;
+        } else {
+          currentVideoTime = vslVideo.currentTime;
+        }
+      });
+
+      // Oculta os controles e força o tamanho da tela ao iniciar a reprodução
+      vslVideo.addEventListener("play", function () {
+        this.removeAttribute("controls");
+        this.style.width = "100%";
+        this.style.height = "100%";
+      });
+
+      // SCRIPT PARA CLICAR NO VÍDEO E INICIAR A REPRODUÇÃO
+      vslVideo.addEventListener("click", () => {
+        vslVideo.play();
+      });
     </script>
   </body>
 </html>
