@@ -97,7 +97,6 @@
         margin-bottom: 40px;
       }
 
-      /* Estilização do player de vídeo nativo */
       .video-container video {
         position: absolute;
         top: 0;
@@ -109,17 +108,6 @@
       }
 
       /* CONTROLES PERSONALIZADOS */
-      /* Botão de Mute no canto superior direito */
-      .mute-btn-container {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 10;
-        padding: 5px 10px;
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 5px;
-      }
-
       /* Botão de Play/Pause no centro */
       .play-btn-container {
         position: absolute;
@@ -342,19 +330,12 @@
           playsinline
           controlsList="nodownload"
           preload="auto"
-          autoplay
-          muted
         >
           <source src="VSL.mp4" type="video/mp4" />
           Seu navegador não suporta o elemento de vídeo.
         </video>
-        <div class="mute-btn-container">
-          <button id="muteBtn" class="control-btn">🔇</button>
-        </div>
         <div class="play-btn-container">
-          <button id="playPauseBtn" class="control-btn" style="display: none">
-            ▶
-          </button>
+          <button id="playPauseBtn" class="control-btn">▶</button>
         </div>
       </div>
 
@@ -508,14 +489,14 @@
 
       // Script para os controles personalizados
       const playPauseBtn = document.getElementById("playPauseBtn");
-      const muteBtn = document.getElementById("muteBtn");
 
       // Torna o botão de play/pause visível quando o vídeo é pausado
       vslVideo.addEventListener("pause", () => {
+        playPauseBtn.innerHTML = "▶";
         playPauseBtn.style.display = "flex";
       });
 
-      // Esconde o botão de play/pause quando o vídeo está tocando
+      // Esconde o botão de play/pause e muda o ícone quando o vídeo está tocando
       vslVideo.addEventListener("play", () => {
         playPauseBtn.style.display = "none";
       });
@@ -526,17 +507,6 @@
           vslVideo.play();
         } else {
           vslVideo.pause();
-        }
-      });
-
-      // Mute/Unmute no clique do botão
-      muteBtn.addEventListener("click", () => {
-        if (vslVideo.muted) {
-          vslVideo.muted = false;
-          muteBtn.innerHTML = "🔊";
-        } else {
-          vslVideo.muted = true;
-          muteBtn.innerHTML = "🔇";
         }
       });
     </script>
